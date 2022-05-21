@@ -34,6 +34,7 @@ a {
   justify-content: space-between;
   margin: 6px 18px;
   position: relative;
+  align-items: center;
 }
 
 .marquee-text {
@@ -614,12 +615,12 @@ span.text-red {
 }
 
 .quantity-desc .minus {
-  border-right: 1px solid gray;
   color: #f02d34;
 }
 
 .quantity-desc .num {
   border-right: 1px solid gray;
+  border-left: 1px solid gray;
   font-size: 20px;
 }
 
@@ -865,7 +866,7 @@ span.text-red {
 
   .track {
     animation: marquee 10s linear infinite;
-    width: 550%;
+    width: 200%;
   }
 
   .success-wrapper,
