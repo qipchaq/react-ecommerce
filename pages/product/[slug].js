@@ -21,7 +21,7 @@ const ProductDetails = ({ product, products }) => {
     resetQty()
   }, []);
 
-  console.log(product)
+  // console.log(product)
 
   return (
     <div>
