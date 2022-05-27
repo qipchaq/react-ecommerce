@@ -9,14 +9,14 @@ import { useStateContext } from '../../context/StateContext';
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, resetQty } = useStateContext();
-  // const { decQty, incQty, qty, onAdd, setShowCart, setQty } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart, resetQty } = useStateContext();
 
-  //   const handleBuyNow = () => {
-  //     onAdd(product, qty);
+  const handleBuyNow = () => {
+    onAdd(product, qty);
 
-  //     setShowCart(true);
-  //   }
+    setShowCart(true);
+  }
+
   useEffect(() => {
     resetQty()
   }, []);
@@ -69,8 +69,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <div className="buttons">
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-            <button type="button" className="buy-now" onClick="">Buy Now</button>
-            {/* <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button> */}
+            <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>
       </div>
