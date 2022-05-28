@@ -14,9 +14,9 @@ export const StateContext = ({ children }) => {
     let foundProduct;
     let index;
 
-    if (showCart) {
-        document.body.classList.add("mystyle")
-    } else document.body.classList.remove("mystyle")
+    // if (showCart) {
+    //     document.body.classList.add("fix")
+    // } else document.body.classList.remove("fix")
 
     const resetQty = () => setQty(1)
 
