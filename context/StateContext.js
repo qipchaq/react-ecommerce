@@ -1,5 +1,5 @@
 import { isResSent } from 'next/dist/shared/lib/utils';
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const Context = createContext();
@@ -13,6 +13,10 @@ export const StateContext = ({ children }) => {
 
     let foundProduct;
     let index;
+
+    if (showCart) {
+        document.body.classList.add("mystyle")
+    } else document.body.classList.remove("mystyle")
 
     const resetQty = () => setQty(1)
 
@@ -42,16 +46,17 @@ export const StateContext = ({ children }) => {
         index = cartItems.findIndex((product) => product._id === id);
         const newCartItems = cartItems.filter((item) => item._id !== id);
 
-        if(value === 'inc') {
-            setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+        if (value === 'inc') {
+            setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }]);
             setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
             setTotalQuantities((prevTotalQuantity) => prevTotalQuantity + 1);
-        } else if (value === 'dec') { 
+        } else if (value === 'dec') {
             if (foundProduct.quantity > 1) {
-                setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
+                setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }]);
                 setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
                 setTotalQuantities((prevTotalQuantity) => prevTotalQuantity - 1);
-        }}
+            }
+        }
     }
 
     const onRemove = (product) => {
