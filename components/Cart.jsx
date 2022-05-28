@@ -10,7 +10,7 @@ import getStripe from '../lib/getStripe';
 
 const Cart = () => {
     const cartRef = useRef();
-    const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+    const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove, sidebarHide } = useStateContext();
 
     const handleCheckout = async () => {
         const stripe = await getStripe();
@@ -39,7 +39,7 @@ const Cart = () => {
                     <button
                         type="button"
                         className="cart-heading"
-                        onClick={() => setShowCart(false)}>
+                        onClick={() => sidebarHide(false)}>
                         <AiOutlineLeft />
                         <span className="heading">Your Cart</span>
                         <span className="cart-num-items">({totalQuantities} items)</span>

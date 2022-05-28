@@ -809,8 +809,9 @@ span.text-red {
   }
 
   .cart-container {
-    width: 415px;
+    max-width: 415px;
     padding: 4px;
+    width: 100%;
   }
 
   .cart-heading {

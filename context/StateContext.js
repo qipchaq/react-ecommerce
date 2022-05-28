@@ -14,9 +14,15 @@ export const StateContext = ({ children }) => {
     let foundProduct;
     let index;
 
-    // if (showCart) {
-    //     document.body.classList.add("fix")
-    // } else document.body.classList.remove("fix")
+    const sidebarShow = () => {
+        setShowCart(true);
+        document.body.classList.add("fix");
+    }
+
+    const sidebarHide = () => {
+        setShowCart(false);
+        document.body.classList.remove("fix");
+    }
 
     const resetQty = () => setQty(1)
 
@@ -95,7 +101,9 @@ export const StateContext = ({ children }) => {
                 onRemove,
                 setCartItems,
                 setTotalPrice,
-                setTotalQuantities
+                setTotalQuantities,
+                sidebarShow,
+                sidebarHide
             }}
         >
             {children}
